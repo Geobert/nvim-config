@@ -1,0 +1,40 @@
+return {
+    {
+        "SmiteshP/nvim-navic",
+        lazy = true,
+        opts = function()
+            return {
+                highlight = false,
+                separator = "  ",
+                depth_limit = 4,
+                depth_limit_indicator = "…",
+                safe_output = true,
+                icons = {
+                    Namespace = " ",
+                    Package = " ",
+                    Class = " ",
+                    Method = " ",
+                    Property = " ",
+                    Field = " ",
+                    Constructor = " ",
+                    Enum = " ",
+                    Interface = " ",
+                    Function = "",
+                    Variable = "",
+                    Constant = " ",
+                    String = " ",
+                    Number = " ",
+                    Boolean = " ",
+                    Array = " ",
+                    Object = " ",
+                    Key = " ",
+                    Null = "ﳠ ",
+                    EnumMember = " ",
+                    Struct = " ",
+                    Event = " ",
+                    Operator = " ",
+                },
+            }
+        end,
+    },
+}
