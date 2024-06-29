@@ -63,6 +63,9 @@ require("lazy").setup({
     -- require("plugins.nvim-hlslens"),
     require("plugins.cmp"),
     require("plugins.telescope"),
+    require("plugins.lazygit"),
+
+    -- NOTE add plugins above this
 }, {
     ui = {
         -- If you are using a Nerd Font: set icons to an empty table which will use the
