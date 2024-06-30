@@ -1,5 +1,5 @@
 return {
-    require("plugins.lspsaga"),
+    -- require("plugins.lspsaga"),
     require("plugins.lspconfig"),
     {
         "aznhe21/actions-preview.nvim",

@@ -1,7 +1,7 @@
 return {
     { -- Autocompletion
         "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
+        -- event = "InsertEnter",
         dependencies = {
             -- Snippet Engine & its associated nvim-cmp source
             {
@@ -20,12 +20,12 @@ return {
                     -- `friendly-snippets` contains a variety of premade snippets.
                     --    See the README about individual language/framework/plugin snippets:
                     --    https://github.com/rafamadriz/friendly-snippets
-                    -- {
-                    --   'rafamadriz/friendly-snippets',
-                    --   config = function()
-                    --     require('luasnip.loaders.from_vscode').lazy_load()
-                    --   end,
-                    -- },
+                    {
+                        "rafamadriz/friendly-snippets",
+                        config = function()
+                            require("luasnip.loaders.from_vscode").lazy_load()
+                        end,
+                    },
                 },
             },
             "saadparwaiz1/cmp_luasnip",
@@ -47,13 +47,20 @@ return {
             "lukas-reineke/cmp-rg",
             "f3fora/cmp-spell",
         },
-        config = function()
+        init = function()
             -- See `:help cmp`
+
+            -- Set up lspconfig.
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+            capabilities.textDocument.completion.completionItem.snippetSupport = true
+
             local cmp = require("cmp")
             local luasnip = require("luasnip")
             luasnip.config.setup({})
             local cmp_buffer = require("cmp_buffer")
 
+            require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
             cmp.setup.cmdline(":", {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = {
@@ -114,12 +121,52 @@ return {
                     { name = "treesitter" },
                 }),
             })
-
-            cmp.setup({
+        end,
+        opts = function()
+            -- For cmp floating window
+            local border = {
+                { "╔", "FloatBorder" },
+                { "═", "FloatBorder" },
+                { "╗", "FloatBorder" },
+                { "║", "FloatBorder" },
+                { "╝", "FloatBorder" },
+                { "═", "FloatBorder" },
+                { "╚", "FloatBorder" },
+                { "║", "FloatBorder" },
+            }
+            local cmp = require("cmp")
+            local luasnip = require("luasnip")
+            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+            cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+            return {
+                preselect = cmp.PreselectMode.None,
+                sorting = {
+                    priority_weight = 5,
+                    comparators = {
+                        cmp.config.compare.score,
+                        cmp.config.compare.exact,
+                        cmp.config.compare.kind,
+                        cmp.config.compare.recently_used,
+                        cmp.config.compare.offset,
+                        -- Below is the default comparitor list and order for nvim-cmp
+                        -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+                        cmp.config.compare.locality,
+                        cmp.config.compare.sort_text,
+                        cmp.config.compare.length,
+                        cmp.config.compare.order,
+                    },
+                },
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
                     end,
+                },
+                window = {
+                    completion = {
+                        winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:Pmenu,CursorLine:PmenuSel",
+                        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+                    },
+                    documentation = cmp.config.window.bordered(),
                 },
                 completion = { completeopt = "menu,menuone,noinsert" },
                 formatting = {
@@ -130,6 +177,8 @@ return {
                         local kind = require("lspkind").cmp_format({
                             mode = "symbol_text",
                             maxwidth = 50,
+                            ellipsis_char = "…",
+                            show_labelDetails = true,
                             symbol_map = {
                                 Text = "",
                                 Method = "",
@@ -161,15 +210,6 @@ return {
                         })(entry, vim_item)
                         return kind
                     end,
-                    -- format = lspkind.cmp_format({
-                    --     mode = "symbol",
-                    --     maxwidth = 50,
-                    --     ellipsis_char = "…",
-                    --     show_labelDetails = true,
-                    --     before = function(entry, vim_item)
-                    --         return vim_item
-                    --     end,
-                    -- }),
                 },
 
                 -- For an understanding of why these mappings were
@@ -250,10 +290,10 @@ return {
                     -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
                     --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
                 }),
-                sources = {
+                sources = cmp.config.sources({
                     { name = "nvim_lsp", group_index = 1, max_item_count = 9 },
-                    { name = "luasnip", group_index = 3, max_item_count = 3 },
-                    { name = "path", group_index = 3, option = { trailing_slash = true } },
+                    { name = "luasnip", group_index = 2, max_item_count = 3 },
+                    { name = "path", group_index = 1, option = { trailing_slash = true } },
                     { name = "crates" },
                     { name = "nvim_lsp_signature_help", group_index = 1, max_item_count = 9 },
                     { name = "emoji" },
@@ -277,10 +317,18 @@ return {
                         },
                         max_item_count = 3,
                     },
+                }),
+                matching = {
+                    disallow_fuzzy_matching = false,
+                    disallow_fullfuzzy_matching = false,
+                    disallow_partial_fuzzy_matching = false,
+                    disallow_partial_matching = false,
+                    disallow_prefix_unmatching = false,
                 },
-            })
+            }
         end,
     },
+    { "saadparwaiz1/cmp_luasnip" },
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-path" },
     { "hrsh7th/cmp-nvim-lua" },

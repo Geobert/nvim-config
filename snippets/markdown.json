@@ -1,0 +1,38 @@
+{
+	"embed_youtube": {
+		"prefix": "yt",
+		"body": [
+			"{{ yt(id=\"${1:video-id}\") }}"
+		],
+		"description": ""
+	},
+	"image": {
+		"prefix": "img",
+		"body": [
+			"{{ img(src=\"/img/${1:src}\", width=\"${2:width}\", align=\"${3:align}\") }}",
+			"",
+			"$0"
+		],
+		"description": ""
+	},
+	"double_image": {
+		"prefix": "dimg",
+		"body": [
+			"{{ dimg(s1=\"/img/${1:src1}\", w1=\"${2:w1}\", ",
+			"s2=\"/img/${3:src2}\", w2=\"${4:w2}\") }}",
+			"",
+			"$0"
+		],
+		"description": ""
+	},
+	"extract": {
+		"prefix": "ss",
+		"body": [
+			"<!-- more -->",
+			"",
+			"$0"
+		],
+		"description": ""
+	}
+}
+
