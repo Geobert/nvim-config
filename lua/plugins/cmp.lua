@@ -181,7 +181,7 @@ return {
                     },
                     documentation = cmp.config.window.bordered(),
                 },
-                completion = { completeopt = "menu,menuone,noinsert", autocomplete = false },
+                completion = { completeopt = "menu,menuone,noinsert" }, --, autocomplete = false },
                 formatting = {
                     fields = { "abbr", "kind", "menu" },
                     expandable_indicator = true,
