@@ -29,7 +29,7 @@ return {
                     -- NOTE: If you enable messages, then the cmdline is enabled automatically.
                     -- This is a current Neovim limitation.
                     enabled = true, -- enables the Noice messages UI
-                    view = "mini", -- default view for messages
+                    view = "notify", -- default view for messages
                     view_error = "notify", -- view for errors
                     view_warn = "notify", -- view for warnings
                     view_history = "messages", -- view for :messages
@@ -48,7 +48,7 @@ return {
                 commands = {
                     history = {
                         -- options for the message history that you get with `:Noice`
-                        view = "popup",
+                        view = "split", --"popup",
                         opts = { enter = true, format = "details" },
                         filter = {
                             any = {
@@ -90,12 +90,12 @@ return {
                     -- event is always "notify" and kind can be any log level as a string
                     -- The default routes will forward notifications to nvim-notify
                     -- Benefit of using Noice for this is the routing and consistent history view
-                    enabled = false,
+                    enabled = true, --false,
                     view = "notify",
                 },
                 lsp = {
                     progress = {
-                        enabled = false,
+                        enabled = true, --false,
                         -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
                         -- See the section on formatting for more details on how to customize.
                         --- @type NoiceFormat|string
@@ -124,7 +124,7 @@ return {
                         auto_open = {
                             enabled = true,
                             trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
-                            luasnip = false, -- Will open signature help when jumping to Luasnip insert nodes
+                            luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
                             throttle = 50, -- Debounce lsp signature help request by 50ms
                         },
                         view = nil, -- when nil, use defaults from documentation

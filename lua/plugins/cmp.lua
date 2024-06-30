@@ -62,6 +62,10 @@ return {
 
             require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
             cmp.setup.cmdline(":", {
+                completion = {
+                    completeopt = "menu,menuone,noinsert,noselect",
+                    autocomplete = { cmp.TriggerEvent.TextChanged },
+                },
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = {
                     { name = "cmdline" }, -- You can specify the `cmp_git` source if you were installed it.
@@ -73,6 +77,10 @@ return {
             })
 
             cmp.setup.cmdline("/", {
+                completion = {
+                    completeopt = "menu,menuone,noinsert,noselect",
+                    autocomplete = { cmp.TriggerEvent.TextChanged },
+                },
                 view = {
                     entries = {
                         name = "custom",
@@ -98,6 +106,10 @@ return {
             })
 
             cmp.setup.cmdline("?", {
+                completion = {
+                    completeopt = "menu,menuone,noinsert,noselect",
+                    autocomplete = { cmp.TriggerEvent.TextChanged },
+                },
                 view = {
                     entries = {
                         name = "custom",
@@ -169,7 +181,7 @@ return {
                     },
                     documentation = cmp.config.window.bordered(),
                 },
-                completion = { completeopt = "menu,menuone,noinsert,noselect", autocomplete = false },
+                completion = { completeopt = "menu,menuone,noinsert", autocomplete = false },
                 formatting = {
                     fields = { "abbr", "kind", "menu" },
                     expandable_indicator = true,
