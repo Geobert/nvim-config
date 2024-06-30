@@ -122,6 +122,7 @@ return {
                 }),
             })
         end,
+
         opts = function()
             -- For cmp floating window
             local border = {
@@ -168,7 +169,7 @@ return {
                     },
                     documentation = cmp.config.window.bordered(),
                 },
-                completion = { completeopt = "menu,menuone,noinsert" },
+                completion = { completeopt = "menu,menuone,noinsert,noselect", autocomplete = false },
                 formatting = {
                     fields = { "abbr", "kind", "menu" },
                     expandable_indicator = true,
