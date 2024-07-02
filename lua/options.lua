@@ -1,8 +1,8 @@
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
-vim.o.guifont = "Cascadia Code NF:h14"
+vim.o.guifont = "Cascadia Code NF:h12"
 vim.g.neovide_cursor_vfx_particle_density = 100.0
 vim.opt.spelllang = "fr,en_gb"
-vim.opt.spell = false
+vim.opt.spell = true
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -86,9 +86,9 @@ vim.opt.hlsearch = true
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+    desc = "Highlight when yanking (copying) text",
+    group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
 })

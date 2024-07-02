@@ -84,7 +84,7 @@ return {
                 view = {
                     entries = {
                         name = "custom",
-                        maxwidth = 50,
+                        maxwidth = 80,
                         maxheight = 10,
                         separator = "||",
                     },
@@ -113,7 +113,7 @@ return {
                 view = {
                     entries = {
                         name = "custom",
-                        maxwidth = 50,
+                        maxwidth = 80,
                         maxheight = 10,
                         separator = "||",
                     },
@@ -137,16 +137,6 @@ return {
 
         opts = function()
             -- For cmp floating window
-            local border = {
-                { "╔", "FloatBorder" },
-                { "═", "FloatBorder" },
-                { "╗", "FloatBorder" },
-                { "║", "FloatBorder" },
-                { "╝", "FloatBorder" },
-                { "═", "FloatBorder" },
-                { "╚", "FloatBorder" },
-                { "║", "FloatBorder" },
-            }
             local cmp = require("cmp")
             local luasnip = require("luasnip")
             local cmp_autopairs = require("nvim-autopairs.completion.cmp")
@@ -329,6 +319,16 @@ return {
                             additional_arguments = { "--hidden", "--files", "--max-depth 2" },
                         },
                         max_item_count = 3,
+                    },
+                    {
+                        name = "spell",
+                        option = {
+                            keep_all_entries = false,
+                            enable_in_context = function()
+                                return true
+                            end,
+                            preselect_correct_word = true,
+                        },
                     },
                 }),
                 matching = {

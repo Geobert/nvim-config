@@ -25,6 +25,7 @@ return {
                         -- lua = false, -- to disable a format, set to `false`
                     },
                 },
+
                 messages = {
                     -- NOTE: If you enable messages, then the cmdline is enabled automatically.
                     -- This is a current Neovim limitation.
@@ -35,6 +36,7 @@ return {
                     view_history = "messages", -- view for :messages
                     view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
                 },
+
                 popupmenu = {
                     enabled = true, -- enables the Noice popupmenu UI
                     ---@type 'nui'|'cmp'
@@ -43,6 +45,7 @@ return {
                     -- Icons for completion item kinds (see defaults at noice.config.icons.kinds)
                     kind_icons = {}, -- set to `false` to disable icons
                 },
+
                 -- You can add any custom commands below that will be available with `:Noice command`
                 ---@type table<string, NoiceCommand>
                 commands = {
@@ -84,6 +87,7 @@ return {
                         filter_opts = { reverse = true },
                     },
                 },
+
                 notify = {
                     -- Noice can be used as `vim.notify` so you can route any notification like other messages
                     -- Notification messages have their level and other properties set.
@@ -93,9 +97,10 @@ return {
                     enabled = true, --false,
                     view = "notify",
                 },
+
                 lsp = {
                     progress = {
-                        enabled = true, --false,
+                        enabled = false,
                         -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
                         -- See the section on formatting for more details on how to customize.
                         --- @type NoiceFormat|string
@@ -150,6 +155,7 @@ return {
                         },
                     },
                 },
+
                 markdown = {
                     hover = {
                         ["|(%S-)|"] = vim.cmd.help, -- vim help links
@@ -164,15 +170,18 @@ return {
                         ["{%S-}"] = "@parameter",
                     },
                 },
+
                 health = {
                     checker = true, -- Disable if you don't want health checks to run
                 },
+
                 smart_move = {
                     -- noice tries to move out of the way of existing floating windows.
                     enabled = true, -- you can disable this behaviour here
                     -- add any filetypes here, that shouldn't trigger smart move.
                     excluded_filetypes = { "cmp_menu", "cmp_docs", "notify" },
                 },
+
                 ---@type NoicePresets
                 presets = {
                     -- you can enable a preset by setting it to true, or a table that will override the preset config
@@ -183,7 +192,9 @@ return {
                     inc_rename = true, -- enables an input dialog for inc-rename.nvim
                     lsp_doc_border = true, -- add a border to hover docs and signature help
                 },
+
                 throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
+
                 ---@type NoiceConfigViews
                 views = {
                     cmdline_popup = {
@@ -215,6 +226,7 @@ return {
                         },
                     },
                 },
+
                 ---@type NoiceRouteConfig[]
                 routes = {
                     {
@@ -233,6 +245,20 @@ return {
                             find = " change",
                         },
                         opts = { skip = true },
+                        view = "mini",
+                    },
+                    {
+                        filter = {
+                            event = "msg_show",
+                            any = {
+                                { find = " %d fewer lines" },
+                                { find = " %d more lines" },
+                                { find = "%d lines <ed %d time[s]?" },
+                                { find = "%d lines >ed %d time[s]?" },
+                                { find = "%d lines yanked" },
+                            },
+                        },
+                        -- opts = { skip = true },
                         view = "mini",
                     },
                 }, ---@type table<string, NoiceFilter>

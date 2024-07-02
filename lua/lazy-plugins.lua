@@ -64,6 +64,7 @@ require("lazy").setup({
     require("plugins.cmp"),
     require("plugins.telescope"),
     require("plugins.lazygit"),
+    require("plugins.wrapping"),
 
     -- NOTE add plugins above this
 }, {

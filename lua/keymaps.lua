@@ -1,6 +1,8 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+vim.keymap.set("n", "+", "j")
+vim.keymap.set("n", "-", "k")
 vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set("n", "<S-up>", ":tabnew %<CR>")
 vim.keymap.set("i", "<S-up>", ":tabnew %<CR>")
