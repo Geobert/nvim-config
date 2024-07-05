@@ -26,23 +26,23 @@ return {
             hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
             return {
                 indent = {
-                    char = {
-                        "┃",
-                        "|",
-                        "╏",
-                        "╎",
-                        "┇",
-                        "┆",
-                        "┋",
-                        "┊",
-                    },
+                    -- char = {
+                    --     "┃",
+                    --     "|",
+                    --     "╏",
+                    --     "╎",
+                    --     "┇",
+                    --     "┆",
+                    --     "┋",
+                    --     "┊",
+                    -- },
                     tab_char = "",
                     highlight = highlight,
                 },
                 scope = {
                     highlight = highlight,
                     char = {
-                        "░",
+                        "┃", -- "░",
                     },
                     show_exact_scope = true,
                 },

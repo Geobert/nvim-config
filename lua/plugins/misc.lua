@@ -11,4 +11,5 @@ return {
     { "ryanoasis/vim-devicons" },
     { "norcalli/nvim-colorizer.lua" },
     { "folke/twilight.nvim" },
+    { "HiPhish/rainbow-delimiters.nvim" },
 }
