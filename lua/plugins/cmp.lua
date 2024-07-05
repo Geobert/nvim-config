@@ -2,7 +2,7 @@ return {
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
-            "saadparwaiz1/cmp_luasnip",
+            -- "saadparwaiz1/cmp_luasnip",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-nvim-lua",
@@ -23,11 +23,11 @@ return {
             capabilities.textDocument.completion.completionItem.snippetSupport = true
 
             local cmp = require("cmp")
-            local luasnip = require("luasnip")
-            luasnip.config.setup({})
+            -- local luasnip = require("luasnip")
+            -- luasnip.config.setup({})
             local cmp_buffer = require("cmp_buffer")
 
-            require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
+            -- require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
             cmp.setup.cmdline(":", {
                 completion = {
                     completeopt = "menu,menuone,noinsert,noselect",
@@ -117,11 +117,11 @@ return {
                         cmp.config.compare.order,
                     },
                 },
-                snippet = {
-                    expand = function(args)
-                        luasnip.lsp_expand(args.body)
-                    end,
-                },
+                -- snippet = {
+                --     expand = function(args)
+                --         luasnip.lsp_expand(args.body)
+                --     end,
+                -- },
                 window = {
                     completion = {
                         winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:Pmenu,CursorLine:PmenuSel",
@@ -187,73 +187,50 @@ return {
                     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-f>"] = cmp.mapping.scroll_docs(4),
 
-                    -- ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
                     -- ["<Tab>"] = cmp.mapping.confirm({ select = true }),
 
-                    ["<CR>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            if luasnip.expandable() then
-                                luasnip.expand()
-                            else
-                                cmp.confirm({
-                                    select = true,
-                                })
-                            end
-                        else
-                            fallback()
-                        end
-                    end),
-
-                    ["<Tab>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_next_item()
-                        elseif luasnip.locally_jumpable(1) then
-                            luasnip.jump(1)
-                        else
-                            fallback()
-                        end
-                    end, { "i", "s" }),
-
-                    ["<S-Tab>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_prev_item()
-                        elseif luasnip.locally_jumpable(-1) then
-                            luasnip.jump(-1)
-                        else
-                            fallback()
-                        end
-                    end, { "i", "s" }),
-                    -- Manually trigger a completion from nvim-cmp.
+                    -- ["<CR>"] = cmp.mapping(function(fallback)
+                    --     if cmp.visible() then
+                    --         if luasnip.expandable() then
+                    --             luasnip.expand()
+                    --         else
+                    --             cmp.confirm({
+                    --                 select = true,
+                    --             })
+                    --         end
+                    --     else
+                    --         fallback()
+                    --     end
+                    -- end),
+                    --
+                    -- ["<Tab>"] = cmp.mapping(function(fallback)
+                    --     if cmp.visible() then
+                    --         cmp.select_next_item()
+                    --     elseif luasnip.locally_jumpable(1) then
+                    --         luasnip.jump(1)
+                    --     else
+                    --         fallback()
+                    --     end
+                    -- end, { "i", "s" }),
+                    --
+                    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
+                    --     if cmp.visible() then
+                    --         cmp.select_prev_item()
+                    --     elseif luasnip.locally_jumpable(-1) then
+                    --         luasnip.jump(-1)
+                    --     else
+                    --         fallback()
+                    --     end
+                    -- end, { "i", "s" }),
+                    -- -- Manually trigger a completion from nvim-cmp.
                     --  Generally you don't need this, because nvim-cmp will display
                     --  completions whenever it has completion options available.
                     ["<C-Space>"] = cmp.mapping.complete({}),
-
-                    -- Think of <
-                    -- Think of <c-l> as moving to the right of your snippet expansion.
-                    --  So if you have a snippet that's like:
-                    --  function $name($args)
-                    --    $body
-                    --  end
-                    --
-                    -- <c-l> will move you to the right of each of the expansion locations.
-                    -- <c-h> is similar, except moving you backwards.
-                    ["<C-l>"] = cmp.mapping(function()
-                        if luasnip.expand_or_locally_jumpable() then
-                            luasnip.expand_or_jump()
-                        end
-                    end, { "i", "s" }),
-                    ["<C-h>"] = cmp.mapping(function()
-                        if luasnip.locally_jumpable(-1) then
-                            luasnip.jump(-1)
-                        end
-                    end, { "i", "s" }),
-
-                    -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
-                    --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
                 }),
                 sources = cmp.config.sources({
                     { name = "nvim_lsp", group_index = 1, max_item_count = 9 },
-                    { name = "luasnip", group_index = 2, max_item_count = 3 },
+                    { name = "snippets", group_index = 2, max_item_count = 3 },
                     { name = "path", group_index = 1, option = { trailing_slash = true } },
                     { name = "crates" },
                     { name = "nvim_lsp_signature_help", group_index = 1, max_item_count = 9 },

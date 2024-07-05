@@ -5,8 +5,9 @@ return {
         priority = 1000,
         config = function()
             vim.g.sonokai_style = "atlantis"
-            vim.g.sonokai_enable_italic = true
-            vim.g.sonokai_dim_inactive_windows = true
+            vim.g.sonokai_enable_italic = 1
+            vim.g.sonokai_dim_inactive_windows = 1
+            vim.g.sonokai_better_performance = 1
             vim.api.nvim_create_autocmd("ColorScheme", {
                 group = vim.api.nvim_create_augroup("custom_highlights_sonokai", {}),
                 pattern = "sonokai",
