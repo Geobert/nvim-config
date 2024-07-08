@@ -13,13 +13,9 @@ map({ "n", "x" }, "-", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, 
 map("i", "<C-BS>", "<C-W>")
 map("c", "<C-BS>", "<C-W>")
 
--- toggle spell checker
-map("n", "<F2>", "<cmd>map spell!<CR>")
-map("i", "<F2>", "<cmd>map spell!<CR>")
-
 -- toggle show white spaces
-map("n", "<F3>", "<cmd>map list! list?<CR>")
-map("i", "<F3>", "<cmd>map list! list?<CR>")
+map("n", "<C-.>", "<cmd>set list!<CR>")
+map("i", "<C-.>", "<cmd>set list!<CR>")
 
 -- Move to window using the <alt> + arrow keys
 map("n", "<A-Left>", "<C-w>h", { desc = "Go to Left Window", remap = true })

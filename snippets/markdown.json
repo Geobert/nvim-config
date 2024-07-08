@@ -7,7 +7,7 @@
 		"description": ""
 	},
 	"image": {
-		"prefix": "img",
+		"prefix": "pic",
 		"body": [
 			"{{ img(src=\"/img/${1:src}\", width=\"${2:width}\", align=\"${3:align}\") }}",
 			"",

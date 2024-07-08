@@ -11,4 +11,5 @@ local opt = vim.opt
 opt.spelllang = { "fr", "en_gb" }
 opt.spell = true
 opt.tabstop = 4
+opt.shiftwidth = 4
 opt.conceallevel = 0
