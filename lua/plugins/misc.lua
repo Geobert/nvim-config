@@ -2,7 +2,7 @@ return {
     -- { "numToStr/Comment.nvim", opts = {} },
     { "petertriho/nvim-scrollbar", opts = {} },
 
-    -- { "echasnovski/mini.pairs", enabled = false },
+    { "echasnovski/mini.pairs", enabled = false },
     -- { "blueyed/vim-diminactive" },
     -- { "stevearc/dressing.nvim" },
     {

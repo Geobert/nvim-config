@@ -8,7 +8,7 @@ return {
             vim.g.sonokai_enable_italic = 1
             vim.g.sonokai_dim_inactive_windows = 1
             vim.g.sonokai_better_performance = 1
-            vim.g.sonokai_float_style = "dim"
+            -- vim.g.sonokai_float_style = "dim"
             vim.api.nvim_create_autocmd("ColorScheme", {
                 group = vim.api.nvim_create_augroup("custom_highlights_sonokai", {}),
                 pattern = "sonokai",
