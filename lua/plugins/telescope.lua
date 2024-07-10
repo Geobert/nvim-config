@@ -8,7 +8,11 @@ return {
                 desc = "Switch Buffer",
             },
             { "<leader>,", LazyVim.pick("auto"), desc = "Find Files (Root Dir)" },
-            { "<leader>sB", LazyVim.pick("live_grep", { grep_open_files = true }), desc = "Grep (opened files)" },
+            {
+                "<leader>sB",
+                LazyVim.pick("grep_string", { grep_open_files = true, search = "" }),
+                desc = "Grep (opened files)",
+            },
         },
         config = function()
             -- The easiest way to use Telescope, is to start by doing something like:
