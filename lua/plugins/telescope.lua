@@ -3,11 +3,16 @@ return {
         "nvim-telescope/telescope.nvim",
         keys = {
             {
-                "<leader><leader>",
+                "<leader><space>",
+                -- LazyVim.pick("buffers", { sort_mru = true, sort_lastused = true }),
                 "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
                 desc = "Switch Buffer",
             },
-            { "<leader>,", LazyVim.pick("auto"), desc = "Find Files (Root Dir)" },
+            {
+                "<leader>,",
+                LazyVim.pick("auto"),
+                desc = "Find Files (Root Dir)",
+            },
             {
                 "<leader>sB",
                 LazyVim.pick("grep_string", { grep_open_files = true, search = "" }),
@@ -84,6 +89,7 @@ return {
                 --
                 defaults = {
                     winblend = 20,
+                    path_display = { filename_first = { reverse_directories = true } },
                     mappings = {
                         i = {
                             ["<c-enter>"] = "to_fuzzy_refine",
@@ -104,7 +110,20 @@ return {
                         },
                     },
                 },
-                -- pickers = {}
+                -- pickers = {
+                --     find_files = {
+                --         path_display = { filename_first = { reverse_directories = true } },
+                --     },
+                --     grep_string = {
+                --         path_display = { filename_first = { reverse_directories = true } },
+                --     },
+                --     live_grep = {
+                --         path_display = { filename_first = { reverse_directories = true } },
+                --     },
+                --     git_files = {
+                --         path_display = { filename_first = { reverse_directories = true } },
+                --     },
+                -- },
                 extensions = {
                     ["ui-select"] = {
                         require("telescope.themes").get_dropdown(),
