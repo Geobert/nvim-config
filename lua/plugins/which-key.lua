@@ -2,6 +2,7 @@ return {
     { -- Useful plugin to show you pending keybinds.
         "folke/which-key.nvim",
         event = "VimEnter", -- Sets the loading event to 'VimEnter'
+
         config = function() -- This is the function that runs, AFTER loading
             local wk = require("which-key")
             wk.setup()
@@ -71,15 +72,20 @@ return {
                     :find()
             end
             -- Document existing key chains
-            wk.register({
-                c = { name = "[C]ode", _ = "which_key_ignore" },
-                d = { name = "[D]ocument", _ = "which_key_ignore" },
-                r = { name = "[R]ename", _ = "which_key_ignore" },
-                s = { name = "[S]earch", _ = "which_key_ignore" },
-                w = { name = "[W]orkspace", _ = "which_key_ignore" },
-                C = { "<cmd>lua require('notify').dismiss()<CR>", "Clear Notifs" },
-                lf = { language_picker, "Insert Markdown Fence" },
-            }, { prefix = "<leader>" })
+            wk.add({
+                { "<leader>C", "<cmd>lua require('notify').dismiss()<CR>", desc = "Clear Notifs" },
+                { "<leader>c", group = "[C]ode" },
+                { "<leader>c_", hidden = true },
+                { "<leader>d", group = "[D]ocument" },
+                { "<leader>d_", hidden = true },
+                { "<leader>lf", language_picker, desc = "Insert Markdown Fence" },
+                { "<leader>r", group = "[R]ename" },
+                { "<leader>r_", hidden = true },
+                { "<leader>s", group = "[S]earch" },
+                { "<leader>s_", hidden = true },
+                { "<leader>w", group = "[W]orkspace" },
+                { "<leader>w_", hidden = true },
+            })
         end,
     },
 }

@@ -4,7 +4,6 @@ return {
         keys = {
             {
                 "<leader><space>",
-                -- LazyVim.pick("buffers", { sort_mru = true, sort_lastused = true }),
                 "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
                 desc = "Switch Buffer",
             },
