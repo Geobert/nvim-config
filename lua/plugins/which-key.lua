@@ -85,6 +85,11 @@ return {
                 { "<leader>s_", hidden = true },
                 { "<leader>w", group = "[W]orkspace" },
                 { "<leader>w_", hidden = true },
+                { "<leader>bz", "<cmd>ZenMode<CR>", desc = "Zen Mode" },
+                { "<leader>rp", "<cmd>ReindentP<CR>", desc = "Reindent Paragraph" },
+                { "<leader>ra", "<cmd>ReindentAll<CR>", desc = "Reindent All" },
+                { "<leader>wl", "<cmd>Telescope workspaces<CR>", desc = "List Workspaces" },
+                { "<leader>gw", "<cmd>RustLsp openDocs<CR>", desc = "Open docs.rs" },
             })
         end,
     },

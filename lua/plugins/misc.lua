@@ -13,4 +13,6 @@ return {
     { "norcalli/nvim-colorizer.lua" },
     { "folke/twilight.nvim", enabled = false },
     { "HiPhish/rainbow-delimiters.nvim" },
+    { "nvim-neo-tree/neo-tree.nvim", enabled = false },
+    { "catppuccin/nvim", enabled = false },
 }
