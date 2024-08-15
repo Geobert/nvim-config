@@ -89,7 +89,7 @@ return {
                 { "<leader>rp", "<cmd>ReindentP<CR>", desc = "Reindent Paragraph" },
                 { "<leader>ra", "<cmd>ReindentAll<CR>", desc = "Reindent All" },
                 { "<leader>wl", "<cmd>Telescope workspaces<CR>", desc = "List Workspaces" },
-                { "<leader>gw", "<cmd>RustLsp openDocs<CR>", desc = "Open docs.rs" },
+                { "<leader>cD", "<cmd>RustLsp openDocs<CR>", desc = "Open docs.rs" },
             })
         end,
     },
