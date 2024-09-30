@@ -1,6 +1,7 @@
 return {
     {
         "gen740/SmoothCursor.nvim",
+        enabled = false,
         opts = {
             type = "default",
             fancy = {

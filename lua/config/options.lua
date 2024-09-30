@@ -4,7 +4,7 @@
 
 require("config.utils")
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
-vim.g.neovide_cursor_vfx_particle_density = 100.0
+vim.g.neovide_cursor_vfx_particle_density = 200.0
 vim.g.neovide_hide_mouse_when_typing = true
 vim.o.guifont = "FiraCode Nerd Font:h12"
 
