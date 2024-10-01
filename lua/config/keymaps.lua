@@ -8,8 +8,8 @@ local map = vim.keymap.set
 -- better up/down
 map({ "n", "x" }, "+", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "-", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
-map({ "n", "x" }, ";", ",")
-map({ "n", "x" }, ",", ";")
+-- map({ "n", "x" }, ";", ",")
+-- map({ "n", "x" }, ",", ";")
 map({ "n", "x" }, "<C-c>", "<C-i>")
 
 -- C-backspace to delete word in insert and command mode
