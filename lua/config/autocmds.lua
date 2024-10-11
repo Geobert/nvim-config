@@ -28,8 +28,8 @@ vim.api.nvim_create_autocmd({ "FocusLost" }, {
 vim.api.nvim_create_autocmd({ "BufLeave" }, {
     group = vim.api.nvim_create_augroup("BufLeaveStuff", { clear = true }),
     callback = function()
-        vim.cmd.stopinsert()
         if is_saveable() then
+            vim.cmd.stopinsert()
             vim.cmd.write({ mods = { silent = true } })
         end
     end,
