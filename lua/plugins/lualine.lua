@@ -12,29 +12,29 @@ return {
                     theme = "auto",
                 },
                 tabline = {
-                    lualine_y = {
-                        {
-                            "tabs",
-                            tab_max_length = 40,
-                            max_length = vim.o.columns / 1.5,
-                            mode = 2,
-                            use_mode_colors = true,
-                            tabs_color = {
-                                -- Same values as the general color option can be used here.
-                                active = "lualine_a_visual", -- Color for active tab.
-                                inactive = "lualine_a_inactive", -- Color for inactive tab.
-                            },
-                            fmt = function(name, context)
-                                -- Show + if buffer is modified in tab
-                                local buflist = vim.fn.tabpagebuflist(context.tabnr)
-                                local winnr = vim.fn.tabpagewinnr(context.tabnr)
-                                local bufnr = buflist[winnr]
-                                local mod = vim.fn.getbufvar(bufnr, "&mod")
-
-                                return name .. (mod == 1 and " Δ" or "")
-                            end,
-                        },
-                    },
+                    -- lualine_y = {
+                    --     {
+                    --         "tabs",
+                    --         tab_max_length = 40,
+                    --         max_length = vim.o.columns / 1.5,
+                    --         mode = 2,
+                    --         use_mode_colors = true,
+                    --         tabs_color = {
+                    --             -- Same values as the general color option can be used here.
+                    --             active = "lualine_a_visual", -- Color for active tab.
+                    --             inactive = "lualine_a_inactive", -- Color for inactive tab.
+                    --         },
+                    --             fmt = function(name, context)
+                    --                 -- Show + if buffer is modified in tab
+                    --                 local buflist = vim.fn.tabpagebuflist(context.tabnr)
+                    --                 local winnr = vim.fn.tabpagewinnr(context.tabnr)
+                    --                 local bufnr = buflist[winnr]
+                    --                 local mod = vim.fn.getbufvar(bufnr, "&mod")
+                    --
+                    --                 return name .. (mod == 1 and " Δ" or "")
+                    --             end,
+                    --         },
+                    --     },
                 },
                 winbar = {
                     lualine_a = {
@@ -61,11 +61,7 @@ return {
                     lualine_z = {},
                 },
                 inactive_winbar = {
-                    lualine_a = {},
-                    lualine_b = {},
-                    lualine_c = {},
-                    lualine_x = {},
-                    lualine_z = {
+                    lualine_a = {
                         {
                             "filename",
                             path = 1,
@@ -77,6 +73,10 @@ return {
                             },
                         },
                     },
+                    lualine_b = {},
+                    lualine_c = {},
+                    lualine_x = {},
+                    lualine_z = {},
                 },
                 extensions = {
                     -- "aerial",

@@ -1,9 +1,5 @@
 return {
-    -- { "numToStr/Comment.nvim", opts = {} },
-    { "petertriho/nvim-scrollbar", opts = {} },
-
     { "echasnovski/mini.pairs", enabled = false },
-    -- { "blueyed/vim-diminactive" },
     -- { "stevearc/dressing.nvim" },
     {
         "nvim-tree/nvim-web-devicons",
@@ -15,4 +11,16 @@ return {
     { "HiPhish/rainbow-delimiters.nvim" },
     { "nvim-neo-tree/neo-tree.nvim", enabled = false },
     { "catppuccin/nvim", enabled = false },
+    { "akinsho/bufferline.nvim", enabled = false },
+    {
+        "mfussenegger/nvim-lint",
+        optional = true,
+        opts = {
+            linters = {
+                ["markdownlint-cli2"] = {
+                    args = { "--config", vim.fn.expand("~/markdownlint.yaml"), "--" },
+                },
+            },
+        },
+    },
 }

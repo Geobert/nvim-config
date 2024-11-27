@@ -90,6 +90,8 @@ return {
                 { "<leader>ra", "<cmd>ReindentAll<CR>", desc = "Reindent All" },
                 { "<leader>wl", "<cmd>Telescope workspaces<CR>", desc = "List Workspaces" },
                 { "<leader>cD", "<cmd>RustLsp openDocs<CR>", desc = "Open docs.rs" },
+                { "<leader>ff", "<cmd>BrootCurrentDir<CR>", desc = "Open file manager at the current file" },
+                { "<leader>fe", "<cmd>BrootWorkingDir<CR>", desc = "Open file manager at cwd" },
             })
         end,
     },

@@ -13,8 +13,7 @@ map({ "n", "x" }, ",", ";")
 map({ "n", "x" }, "<C-c>", "<C-i>")
 
 -- C-backspace to delete word in insert and command mode
-map("i", "<C-BS>", "<C-W>")
-map("c", "<C-BS>", "<C-W>")
+map({ "i", "c", "t" }, "<C-BS>", "<C-W>")
 
 -- toggle show white spaces
 map("n", "<C-.>", "<cmd>set list!<CR>")
