@@ -11,3 +11,7 @@ local set_autoformat = function(pattern, bool_val)
     })
 end
 set_autoformat("java", false)
+set_autoformat("h", false)
+set_autoformat("C", false)
+set_autoformat("c", false)
+set_autoformat("cpp", false)
