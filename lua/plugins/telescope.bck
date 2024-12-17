@@ -1,6 +1,7 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
+        enabled = false,
         keys = {
             {
                 "<leader><space>",
@@ -140,4 +141,9 @@ return {
             pcall(require("telescope").load_extension, "workspaces")
         end,
     },
+
+    -- {
+    --     "nvim-telescope/telescope-fzf-native.nvim",
+    --     build = "make", --"cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+    -- },
 }

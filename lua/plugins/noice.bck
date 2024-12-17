@@ -2,11 +2,11 @@ return {
     {
         "folke/noice.nvim",
         opts = {
-            popupmenu = {
-                ---@type 'nui'|'cmp'
-                backend = "cmp", -- backend to use to show regular cmdline completions
-            },
-
+            -- popupmenu = {
+            --     ---@type 'nui'|'cmp'
+            --     backend = "cmp", -- backend to use to show regular cmdline completions
+            -- },
+            --
             routes = {
                 {
                     filter = {

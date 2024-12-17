@@ -1,6 +1,7 @@
 return {
     {
         "natecraddock/workspaces.nvim",
+        enabled = false,
         opts = {
             auto_open = true,
             auto_dir = true,

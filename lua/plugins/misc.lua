@@ -1,12 +1,11 @@
 return {
-    { "echasnovski/mini.pairs", enabled = false },
-    -- { "stevearc/dressing.nvim" },
+    -- { "echasnovski/mini.pairs", enabled = false },
     {
         "nvim-tree/nvim-web-devicons",
         lazy = true,
     },
     { "ryanoasis/vim-devicons" },
-    { "norcalli/nvim-colorizer.lua" },
+    -- { "norcalli/nvim-colorizer.lua" },
     { "folke/twilight.nvim", enabled = false },
     { "HiPhish/rainbow-delimiters.nvim" },
     { "nvim-neo-tree/neo-tree.nvim", enabled = false },
