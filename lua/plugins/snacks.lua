@@ -3,5 +3,6 @@ return {
     opts = {
         lazygit = {},
         bigfile = {},
+        scroll = { enabled = false },
     },
 }

@@ -18,9 +18,7 @@ vim.cmd([[command! ReindentP lua require('config.utils').preserve("sil keepj nor
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     pattern = { "*.md" },
     callback = function()
-        require("cmp").setup.buffer({
-            completion = { completeopt = "menu,menuone,noinsert", autocomplete = false },
-        })
+        require("blink.cmp.completion.windows.menu").auto_show = false
     end,
 })
 return M
