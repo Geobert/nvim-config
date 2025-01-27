@@ -18,6 +18,6 @@ return {
     --         }
     --     end,
     -- },
-    "antosha417/nvim-lsp-file-operations",
-    "onsails/lspkind.nvim",
+    -- "antosha417/nvim-lsp-file-operations",
+    -- "onsails/lspkind.nvim",
 }

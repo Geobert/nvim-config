@@ -18,6 +18,7 @@ return {
             -- - sd'   - [S]urround [D]elete [']quotes
             -- - sr)'  - [S]urround [R]eplace [)] [']
             require("mini.surround").setup()
+            require("mini.files").setup()
 
             -- require("mini.extra").setup()
             -- require("mini.pick").setup()
