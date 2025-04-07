@@ -31,8 +31,8 @@ require("lazy").setup({
         -- version = "*", -- try installing the latest stable version for plugins that support semver
     },
     install = { colorscheme = { "sonokai", "tokyonight" } },
-    concurrency = jit.os:find("Windows") and vim.uv.available_parallelism() or nil,
-    checker = { enabled = true, concurrency = 10 }, -- automatically check for plugin updates
+    concurrency = vim.uv.available_parallelism(),
+    checker = { enabled = true, concurrency = 5 }, -- automatically check for plugin updates
     performance = {
         rtp = {
             -- disable some rtp plugins
