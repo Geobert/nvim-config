@@ -3,12 +3,13 @@
 -- Add any additional options here
 
 require("config.utils")
-if vim.g.neovide then
-    vim.g.neovide_cursor_vfx_mode = "pixiedust"
-    vim.g.neovide_cursor_vfx_particle_density = 50.0
-    vim.g.neovide_hide_mouse_when_typing = true
-end
+
+vim.g.neovide_cursor_vfx_mode = "pixiedust"
+vim.g.neovide_cursor_vfx_particle_density = 50.0
+vim.g.neovide_hide_mouse_when_typing = true
+
 vim.o.guifont = "Cascadia Code NF:h12.5"
+-- vim.g.clipboard = false
 
 local opt = vim.opt
 opt.spelllang = { "fr", "en_gb" }

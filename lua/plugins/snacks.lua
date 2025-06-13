@@ -13,6 +13,15 @@ return {
             show = { statusline = false, tabline = false },
             win = { backdrop = { transparent = false } },
         },
-        -- styles = { zen = { backdrop = { transparent = false, blend = 0 } } },
+        picker = {
+            formatters = {
+                file = {
+                    filename_first = true,
+                },
+            },
+            win = { input = { keys = {
+                ["<Esc>"] = { "close", mode = { "n", "i" } },
+            } } },
+        },
     },
 }
